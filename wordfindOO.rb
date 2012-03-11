@@ -5,7 +5,7 @@ require './resource_classBoard'
 
 myboard = ScrabbleBoard.new
 myboard.initialvalues
-myboard.readboard("../Games/board.txt")
+myboard.readboard("Games/board.txt")
 myboard.readscores("SWscoreResource.txt")
 myboard.findBoardSWs
 #myboard.printscores
@@ -46,7 +46,7 @@ allpossibles.each {|possible| possible.scoreword(myboard)}
 allpossibles = allpossibles.sort_by {|possible| [-(possible.score + possible.supplement)]}
 allpossibles.each {|possible| possible.print("Final>")}
 
-afile = File.open("../Games/possibles.txt", "w")
+afile = File.open("Games/possibles.txt", "w")
 afile.puts "string, size, x, y, direction, score, supplement, total"
 allpossibles.each {|aSW| afile.puts("#{aSW.astring},#{aSW.astring.size},#{aSW.xcoordinate},#{aSW.ycoordinate},#{aSW.direction},#{aSW.score},#{aSW.supplement},#{aSW.score + aSW.supplement}") }
 afile.close
